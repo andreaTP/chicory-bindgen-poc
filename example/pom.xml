@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.dylibso.chicory</groupId>
+    <artifactId>chicory-bindgen</artifactId>
+    <version>999-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>example</artifactId>
+  <packaging>jar</packaging>
+  <name>Chicory Bindgen - Example</name>
+  <description>Example Usage of Chicory Bindgen</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.dylibso.chicory</groupId>
+      <artifactId>runtime</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.dylibso.chicory</groupId>
+        <artifactId>bindgen-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <files>basic.c.wasm,sum.rust.wasm</files>
+          <!-- for demo purposes -->
+          <targetDirectory>src/main/java</targetDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wasm-bindgen</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
